@@ -1,13 +1,30 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 
-int main ()
-{
-    char name[20];
-    printf("What is your name? : ");
-    fgets(name, 20, stdin);
-    printf("Your name is %s", name);
-
+int main(int argc, char ** argv) {
+    int twodarray[10][10] = { 
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 },
+        { -1, -1, -1, -1, -1, -1, -1, -1, -1, -1 }        
+    };
+    for (int i = 0; i < 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            twodarray[i][j] = -2;
+        }
+    }
+    for (int i = 0; i < 10; i++) {
+        printf("%lu\n", (unsigned long) twodarray[i]);
+        for (int j = 0; j < 10; j++) {
+            printf("%d ", twodarray[i][j]);
+        }
+        printf("\n");
+    }
     return 0;
-
 }
