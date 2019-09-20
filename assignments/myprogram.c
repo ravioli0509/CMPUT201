@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
+
 int LongestCommonSequence(char s1[], char s2[], int m, int n){
     int lcs_calls++;
     printf("calls: %d\n", lcs_calls);
@@ -42,31 +43,5 @@ int main(int argc, char ** argv) {
 
 
     return 0;
-
-    /*
-    We need to check 
-    example 
-    adfasdf
-    asfasdf
-
-
-    3 cases:
-    adfasd vs asfasdf (removed 1 letter from first string)
-    adfasdf vs asfasd (removed 1 letter from second string)
-    adfasd vs adfasd (removed 1 letter from both) + 1 if the letters i removed were the same
-
-    remove the last string
-
-    lcs(m, n)
-        if m or n is 0;
-            return 0
-
-        return max of 
-            lcs(m-1, n)
-            lcs(m, n-1)
-            lcs(m-1, n-1) + 1 string1
-            character m and string2 
-            character n are the same
-
-    */
 }
+
