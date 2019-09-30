@@ -2,6 +2,7 @@
 * This is assignment 1, finding the LCS of two sequences. 
 * Algorithm in function LCS and finding max was referenced on https://www.dyclassroom.com/dynamic-programming/longest-common-subsequence
 * Henceforth I credit this website for the use of dynamic programming in fucntion LCS.
+* Insights were shared with Rubin, Rachel, and Hyunseo as collaborators.
 * student ID: 1553439 CCID: nawalage
 */
 #include<stdio.h>
