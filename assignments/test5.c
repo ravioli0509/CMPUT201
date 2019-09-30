@@ -49,18 +49,19 @@ void LCS(char s1[], char s2[], int m, int n) {
       s1_num = s1_num - 1;
       s2_num = s2_num - 1;
 
-    } else if(L[s1_num - 1][s2_num] < L[s1_num][s2_num - 1]) {
-
-      s2_num = s2_num - 1;
-
-    } else {
+    } else if(L[s1_num - 1][s2_num] > L[s1_num][s2_num - 1]) {
 
       s1_num = s1_num - 1;
 
+    } else {
+
+      s2_num = s2_num - 1;
+
     }
   }
-  if (s1_num == 0 || s2_num == 0 ){
-    printf("Total LCS calls is 0, because of existing empty sequence(s)!\n");
+  if (L[m][n]-1 == 0 ){
+    printf("# an LCS (length = %d) is:\n", L[m][n]-1);
+    printf("\nTotal LCS calls is 0, because of existing empty sequence(s)!\n");
   } else {
     printf("# an LCS (length = %d) is:\n", L[m][n]-1);
     printf("%s\n", LCS);
@@ -69,55 +70,57 @@ void LCS(char s1[], char s2[], int m, int n) {
 }
 
 int main(void) {
-    char s1[1001], s2[1001];
+    char s1[1002], s2[1002];
     int a = 0, b = 0;
     s1[a] = '\0';
     s2[b] = '\0';
     int n=0, m=0, i=0, j=0, num=0;
-      while (num == 0){
-      int error_s1 = 0;
-      int error_s2 = 0;
-      printf("To Compute LCS enter two sequences\n");
 
-      printf("Enter the first sequence: ");
-      fgets(s1,1001, stdin);        
-      for (i = 0; i < strlen(s1)-1; i++){
-          if (isdigit(s1[i]) == 0){
-              error_s1 = 1;
-              break;
-          }else{
-              error_s1 = 0;
-          }
-      }
-      if (error_s1 == 1){
-          printf("\nError! Non-digit character detected!\n\n");
-          continue;
-      }    
-      
-      printf("Enter the second sequence: ");
-      fgets(s2,1001,stdin);   
+    while (num == 0){
+        int error_s1 = 0;
+        int error_s2 = 0;
+        printf("To Compute LCS enter two sequences\n");
 
-      for (j = 0; j < strlen(s2)-1; j++){
-          if (isdigit(s2[j]) == 0){
-              error_s2 = 1;
-              break;
-          }else{
-              error_s2 = 0;
-          }
-      }
-      if (error_s2 == 1){
-          printf("\nError! Non-digit character detected!\n\n");
-          num = 0;
-          continue;
-      }  
+        printf("Enter the first sequence: ");
+        fgets(s1,1002, stdin);        
+        for (i = 0; i < strlen(s1)-1; i++){
+            if (isdigit(s1[i]) == 0){
+                error_s1 = 1;
+                break;
+            }else{
+                error_s1 = 0;
+            }
+        }
+        if (error_s1 == 1){
+            printf("\nError! Non-digit character detected!\n\n");
+            continue;
+        }    
+        
+        printf("Enter the second sequence: ");
+        fgets(s2,1002,stdin);   
 
-      if (error_s1 == 0 && error_s2 == 0){
-          num = 1;
-      }else{
-          num = 0;
-          continue;
-      }      
+        for (j = 0; j < strlen(s2)-1; j++){
+            if (isdigit(s2[j]) == 0){
+                error_s2 = 1;
+                break;
+            }else{
+                error_s2 = 0;
+            }
+        }
+        if (error_s2 == 1){
+            printf("\nError! Non-digit character detected!\n\n");
+            num = 0;
+            continue;
+        }  
+
+        if (error_s1 == 0 && error_s2 == 0){
+            num = 1;
+        }else{
+            num = 0;
+            continue;
+        }      
     }
+
     m = strlen(s1);
     n = strlen(s2);
     printf("\n# Two input sequences (length = %d, %d) are:\n", m-1, n-1);
