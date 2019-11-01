@@ -24,7 +24,7 @@ int main(int argc, char ** argv)
     for ( int a = 0; a < size; a++){
         for (int b = 0; b < size; b++){
             scanf("%d", &matrix[a][b]);
-            matrix_2[a][b] = matrix[a][b];
+            matrix_2[a][b] = matrix[a][b]; //initialize square matrix using matrix[a][b]
         }
     }
 
@@ -34,10 +34,12 @@ int main(int argc, char ** argv)
             if (matrix[a][b] == 1){
                 for (int c = 0; c < size; c++){
                     if (matrix[b][c] == 1 && a != c){
-
-                        //checking for the double edge connection
-                        // if a and b is connected, and b and c is connected, we know a and c is connected as well 
-                        // by the law of transitivity 
+                        /*
+                         eg if 1 is connected to 2. 2 is connected to 1, then 1 is connected to 1. Which is false. 
+                         checking for the double edge connection
+                         if a and b is connected, and b and c is connected, we know a and c is connected as well while a != c
+                         by the law of transitivity
+                         */ 
                         matrix_2[a][c] = 1;
 
                     }

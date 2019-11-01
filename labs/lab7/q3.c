@@ -2,37 +2,51 @@
     #16 in Page 313
 */
 #include <stdio.h>
-#include <stdlib.h>
+#define MAX 100
+
 void reverse(char *message);
 
-int main(void){
-    char message[1000];
-    char i, *mess = message;
-
+int main(void) {
+    
+    char message[MAX];
+    char c, *start = message;
+    int loop = 1;
     printf("Enter a message: ");
-    while ((i = getchar()) != '\n' && *mess < 1000){
-        *mess++ = i;
-    }
+
+    while (loop)
+        if ((c = getchar()) != '\n'){
+            *start++ = c; // character starts storing from position 0, increments. 
+        }else{
+            loop = 0;
+        }
+            
+
     reverse(message);
-
     printf("Reversal is: ");
+
     printf("%s\n", message);
-    return 0; 
-}
 
-void reverse(char *message){
-    char *mess = message, *q = message, temp;
+    return 0;
+}    
 
-    while (*q){
-        q++;
-    }
-    q--;
+void reverse(char *message) {
 
-    while(p<q){
-        temp = *mess;
-        *mess = *q;
-        *q = temp;
-        p++; 
-        q--;
+    char *start = message; 
+    char *end = message;
+    char temp;
+
+    while (*end){
+        end++;
+    } // we are trying to position the end point (to the end of the array)
+    end--;
+
+    while (start < end) {
+        // basically we are switching start point and end point using temp as a temporary storage.
+        // after switching starting position moves forward, and end position moves backward. 
+        temp = *start; 
+        *start = *end;
+        *end = temp;
+        start++;
+        end--;
     }
 }

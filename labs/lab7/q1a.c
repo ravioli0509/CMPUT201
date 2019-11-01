@@ -1,5 +1,5 @@
 /*
-    #1 in Page 275-276
+    #1a in Page 275-276
 */
 #include<stdio.h>
 #include<string.h>

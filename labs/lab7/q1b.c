@@ -1,5 +1,5 @@
 /*
-    #3 in Page 275-276
+    #1b in Page 275-276
 */
 #include<stdio.h>
 #include<string.h>
@@ -8,26 +8,28 @@ int main()
 {
     char m[MAX];
     char character;
-    int loop = 1;
-    int j = 0;
+    char *i; 
+    int true = 1;
+
+    i = &m[0]; // address for the pointer
 
     printf("Enter a message: ");
    
-    while (loop){
+    while (true){
         // Accept the each character from the user.
         if ((character = getchar()) != '\n'){
-            *(m + j) = character;  // j is the counter, as j starts from 0, first character stores in position 0 of *m. Value stored in m + j
-            j++;
+            *i = character;
         }else{ //stops reading if the input is new line
-            loop = 0;
+            true = 0;
         }
+        i++;
     }
    
     printf("Reversal is: ");
     // Display the message in the reverse order.
-    for (int i = j; j >= 0; j--)
+    for (--i; i >= &m[0]; --i)
     {
-         printf("%c", *(m+j));
+         printf("%c", *i);
     }
     printf("\n");
     return 0;
