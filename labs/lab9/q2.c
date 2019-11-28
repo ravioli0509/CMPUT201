@@ -4,11 +4,19 @@
 /*
 idea of DFS used from https://en.wikipedia.org/wiki/Depth-first_search
 
+
+The finding the cycle is not done. 
+What I was trying to do was to find the grandparent of the node. If 0 -> 1 -> 2 -> 3 -> 0.  
+Then we would know that the matrix has a 
+cycle inside using backtrack. Essentially if we traverse the nodes using DFS and as we hit a node that has a grandparent node of the initial node 
+then we know it has a cycle. 
+In another analogy if we traverse the node and hit gray again then we know its a cycle.
+
+
 */
 
 int visited[LEN];
 int matrix[LEN][LEN]; //globally initialize matrix and an array
-int cycle[LEN];
 
 int Visiting(int node, int size){
   for (size_t i = 0; i < size; i++) {
