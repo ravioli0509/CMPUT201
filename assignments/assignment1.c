@@ -17,21 +17,7 @@ int FindMaxFromTable(int a, int b) {
 }
 
 void LCS(char s1[], char s2[], int m, int n) {
-  /*
-   * In the first two for loops, the algorithm goes through the 2D array of the str length of two sequences 
-   * 
-   * L[str length of s1 = row of 2d grid][str length of s2 = column of 2d grid]
-   * 
-   * The algorithm has a test case of detecting whether the str length is 0 or not for s1 and s2. (shown at #1)
-   * Which the resulting L[m][n] will be 0 if its the case.
-   * 
-   * If a character in s1 for certain index is same as the character in s2, then we add 1 to L[s1_num][s2_num] position (in the 2D table)
-   * (shown at #2)
-   * 
-   * The algorithm then proceeds to finds the maximum number between L[row - 1][column] and L[row][column - 1] on the 2D grid. (shown at #3)
-   * 
-   * At the end, the length of LCS will be located in very bottom right corner of the 2D grid.
-   */
+
   int L[m + 1][n + 1];
   int s1_num, s2_num, len_of_LCS;
   int lcs_calls = 0;
@@ -57,19 +43,7 @@ void LCS(char s1[], char s2[], int m, int n) {
     lcs_calls = lcs_calls + 1;
   }
 
-  /*
-  * From here, the algorithm goes on to printing out the LCS.
-  * LCS has its own array and its index (which is L[m = row][n = colum] or also known as length of LCS.)
-  * To put the common characters into the LCS, we first compare s1 and s2 from end of both arrays. 
-  * 
-  * If the characters are the same, we reduce the index of LCS array (going from right to left {i to 0}) and reduce the m and n. 
-  * 
-  * However if the characters are not the same, we go back to the 2D table and compare if L[row - 1][column] is bigger than L[row][column-1]. 
-  * This indicates if s1 is bigger than s2, in length wise (or vice versa). If so, it reduces the one on the longer seqeuence. 
-  * 
-  * row number deducts if L[row - 1][column] is bigger
-  * column number deducts if L[row][column - 1] is bigger. 
-  */
+  
   s1_num = m;
   s2_num = n;
   len_of_LCS = L[s1_num][s2_num];
@@ -105,10 +79,6 @@ void LCS(char s1[], char s2[], int m, int n) {
     printf("Total LCS calls: %d\n", lcs_calls);
   }
 
-  /**
-   *  In this function, I have modified areas including adding lcs calls which adds up everytime it is being called to compare the sequences.
-   *  Furthermore, simple if statements are added to show the results depending on the LCS shown at #6 
-   */ 
 }
 
 int main(void) {
@@ -122,7 +92,7 @@ int main(void) {
     * If both error_s1 and error_s2 are still 0 at the end of while loop. A if statement is there to change num to 1, so that way the while loop breaks 
     * and proceeds into the lcs.
     */
-    char s1[1002], s2[1002];
+    char s1[1001], s2[1001];
     int a = 0, b = 0;
     s1[a] = '\0'; // we set null character at the end of string, to show the end of array
     s2[b] = '\0'; // same as above
