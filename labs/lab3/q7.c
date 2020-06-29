@@ -38,6 +38,7 @@ int main(int agrc, char ** argv){
         smallest = small_1;
     }else{
         smallest = small_2;
+ 
     }
         
         
